@@ -18,71 +18,70 @@ Pour cela Nous allons avoir besoin de quatre renseignements :
 
 ### C. L'identifiant et le mot de passe : ils permettent de vous identifier.
 
-Expl: 
+### Expl: 
+### <?php
+### $ServerName = "localhost";
+### $BdName = "Test";
+### $Identifian = "admin"
+### $MotPasse = "root";
 
-<?php
-$ServerName = "localhost";
-$BdName = "Test";
-$Identifian = "admin"
-$MotPasse = "root";
+### $con = new PDO('mysql:host=$ServerName;dbname=$BdName;charset=utf8mb4', $Identifian, $MotPasse);
+### ?>
 
-$con = new PDO('mysql:host=$ServerName;dbname=$BdName;charset=utf8mb4', $Identifian, $MotPasse);
-?>
+## 2. Ecriture de la requete SQL avec marquers
+### Definir la requete de facon securiser grace aux marqueres.
 
-# 2. Ecriture de la requete SQL avec marquers
-Definir la requete de facon securiser grace aux marqueres.
+### $sql = "SELECT * FROM livre WHERE id = :id"
 
-$sql = "SELECT * FROM livre WHERE id = :id"
-
-# 3. Preparation de la requete
- Preparer une requete sans l'executer
+## 3. Preparation de la requete
+ ### Preparer une requete sans l'executer
  
- $stmt = $con->prepare($sql);
+ ### $stmt = $con->prepare($sql);
 
- # 4. Liaison des variables aux marquers
- Associer les valeurs PHP aux marquers SQL. Ont a trois Methodes
+ ## 4. Liaison des variables aux marquers
+ ### Associer les valeurs PHP aux marquers SQL. Ont a trois Methodes
 
- # a. bindParam = Lier une variable(Parametre), par reference.
+ ## a. bindParam = Lier une variable(Parametre), par reference.
 
- $id = 1;
- $stmt->bindParam(":id",$id);
+ ### $id = 1;
+ ### $stmt->bindParam(":id",$id);
 
- # b. bindValue = Lier une valeur fixe
+ ## b. bindValue = Lier une valeur fixe
 
- $stmt->bindValue(":id",1);
+ ### $stmt->bindValue(":id",1);
 
- # c. execute avec tableau Mehtode recommander
+ ## c. execute avec tableau Mehtode recommander
 
- $stmt->execute([
-    ":id" => 1
- ]);
+ ### $stmt->execute([
+    ### ":id" => 1
+ ### ]);
 
- # 5. Exectution de la requete
- Une fois qu'ont a choisir la methode pour lier les variable aux marqueres ont lance(execute) la requete
+ ## 5. Exectution de la requete
+ ### Une fois qu'ont a choisir la methode pour lier les variable aux marqueres ont lance(execute) la requete
 
- $stmt->execute();
+ ### $stmt->execute();
 
- # 6. Recuperation des données
+ ## 6. Recuperation des données
 
- La methode fetch() = recupere une seule ligne.
+ ### La methode fetch() = recupere une seule ligne.
 
- $resultat = $stmt->fetch();
+ ### $resultat = $stmt->fetch();
 
- La methode fetchAll() = recupere toutes les lignes.
+ ### La methode fetchAll() = recupere toutes les lignes.
 
- $resultats = $stmt-fetchAll();
+ ### $resultats = $stmt-fetchAll();
 
-# 7. Parcours et affichage des données 
+## 7. Parcours et affichage des données 
 
-foreach ($resultats as $ligne){
-    echo $ligne["nom"];
-}
+### foreach ($resultats as $ligne){
+    ### echo $ligne["nom"];
+### }
 
-# Securisation du Formulaire
+## 8. Securisation du Formulaire
 
-Trim() : est une fonction qui permette d'effacer des espaces;
-FITER_VAR() : Elle permete de verifier la validiter d'un email avec le Parametre FILTER_VALIDATE_EMAIL
+### Trim() : est une fonction qui permette d'effacer des espaces;
+### FITER_VAR() : Elle permete de verifier la validiter d'un email avec le Parametre FILTER_VALIDATE_EMAIL
 
-# a. Session
-Sont des moyens permettent de stocke les données des users.
-Pour demarrer une session ont utilise la fonction session_start();
+## a. Session
+### Sont des moyens permettent de stocke les données des users.
+### Pour demarrer une session ont utilise la fonction session_start();
