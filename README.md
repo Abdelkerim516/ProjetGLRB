@@ -1,22 +1,22 @@
-Projet Gestion d'un laboratoire de recherche biomedical.
+# Projet Gestion d'un laboratoire de recherche biomedical.
 
-Technologie 
+## Technologie 
 
-Frontend = html, bootstrap, js, css
-backend = php
-database = Mysql
+### 1. Frontend = html, bootstrap, js, css
+### 2. backend = php
+### .3database = Mysql
 
-### Cours PHP Récap
-# 1. Connexion a la BDD avec PDO
+## Cours PHP Récap
+### 1. Connexion a la BDD avec PDO
 PDO est un instance qui permet a PHP de communique avec une BDD.
 
 Pour cela Nous allons avoir besoin de quatre renseignements :
 
-# A. Le nom de l'hôte : c'est l'adresse IP de l'ordinateur où MySQL est installé. Le plus souvent, MySQL est installé sur le même ordinateur que PHP : dans ce cas, mettez la valeur``localhost`` . 
+### A. Le nom de l'hôte : c'est l'adresse IP de l'ordinateur où MySQL est installé. Le plus souvent, MySQL est installé sur le même ordinateur que PHP : dans ce cas, mettez la valeur``localhost`` . 
 
-# B. La base : c'est le nom de la base de données à laquelle vous voulez vous connecter.
+### B. La base : c'est le nom de la base de données à laquelle vous voulez vous connecter.
 
-# C. L'identifiant et le mot de passe : ils permettent de vous identifier.
+### C. L'identifiant et le mot de passe : ils permettent de vous identifier.
 
 Expl: 
 
